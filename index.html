@@ -6,7 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ADCOIN - Born from ads. Powered by memes.">
 
-<link rel="icon" href="/favicon.ico">
+<!-- FAVICON -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico">
 
 <style>
 body {
@@ -84,10 +86,26 @@ body {
   border-radius: 40px;
   box-shadow: 0 0 25px #00ff99;
   transition: 0.3s;
+  position: relative;
 }
 
 .btn:hover {
   transform: scale(1.08);
+}
+
+/* TOOLTIP (COMING SOON) */
+.btn[data-soon]:hover::after {
+  content: "Coming Soon";
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #00ff99;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
 }
 
 /* SECTIONS */
@@ -146,6 +164,18 @@ footer {
     <a class="btn" href="https://pump.fun/coin/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump" target="_blank">
       Buy ADCOIN
     </a>
+
+    <a class="btn" href="https://dexscreener.com/solana/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump" target="_blank">
+      Live Chart
+    </a>
+
+    <a class="btn" href="https://x.com/adcoinofficial" target="_blank">
+      X (@adcoinofficial)
+    </a>
+
+    <a class="btn" href="#" data-soon>
+      Telegram
+    </a>
   </div>
 </div>
 
@@ -155,7 +185,7 @@ footer {
     <h2>About ADCOIN</h2>
     <p>
       Ads are everywhere. ADCOIN turns attention into a meme-powered movement.
-      No promises, no roadmap lies — just pure community energy.
+      No false promises. No hidden agenda. Just community.
     </p>
   </div>
 </section>
@@ -163,26 +193,4 @@ footer {
 <!-- TOKENOMICS -->
 <section>
   <h2>Tokenomics</h2>
-  <div class="token-box">
-    <div class="token-item">Total Supply<br><strong>1,000,000,000</strong></div>
-    <div class="token-item">Tax<br><strong>0%</strong></div>
-    <div class="token-item">Liquidity<br><strong>Burned 🔥</strong></div>
-    <div class="token-item">Ownership<br><strong>Renounced</strong></div>
-  </div>
-</section>
-
-<!-- CONTRACT -->
-<section>
-  <h2>Contract Address</h2>
-  <p class="contract">
-    EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump
-  </p>
-</section>
-
-<footer>
-  <p>ADCOIN is a meme token with no intrinsic value.</p>
-  <p>Community driven. Entertainment only.</p>
-</footer>
-
-</body>
-</html>
+  <div class
