@@ -8,6 +8,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ADCOIN - Born from ads. Powered by memes.">
 <style>
+  .hero {
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+    url('hero.png') center/cover no-repeat;
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.hero h1 {
+  animation: float 3s ease-in-out infinite;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -75,8 +90,13 @@ footer {
       ADCOIN is a community-driven meme token inspired by the modern ad economy.
       Ads follow us everywhere — now they work for us.
     </p>
+
+    <img src="adcoin-visual.png"
+         alt="ADCOIN digital visual"
+         style="max-width:300px;margin-top:30px;">
   </div>
 </section>
+
 
 <section>
   <h2>Tokenomics</h2>
