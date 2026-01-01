@@ -259,11 +259,47 @@ body {
     opacity: 0;
   }
 }
+/* NEON HUD / ROLEX FRAME */
+.neon-frame {
+  position: fixed;
+  top: 0;
+  width: 6px;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0,255,153,0.8),
+    transparent
+  );
+  box-shadow:
+    0 0 20px rgba(0,255,153,0.6),
+    0 0 40px rgba(0,255,153,0.35);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+  animation: hudPulse 4s infinite ease-in-out;
+}
+
+.neon-frame.left {
+  left: 12px;
+}
+
+.neon-frame.right {
+  right: 12px;
+}
+
+@keyframes hudPulse {
+  0%   { opacity: 0.15; }
+  50%  { opacity: 0.35; }
+  100% { opacity: 0.15; }
+}
 
 </style>
 </head>
 
 <body>
+<div class="neon-frame left"></div>
+<div class="neon-frame right"></div>
 
 <!-- HERO -->
 <div class="hero">
@@ -344,6 +380,21 @@ document.querySelectorAll(".btn").forEach(btn => {
     hoverSound.currentTime = 0;
     hoverSound.volume = 0.3;
     hoverSound.play();
+  });
+});
+</script>
+<script>
+const frames = document.querySelectorAll('.neon-frame');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const intensity = Math.min(0.6, 0.15 + scrollY / 3000);
+
+  frames.forEach(frame => {
+    frame.style.opacity = intensity;
+    frame.style.boxShadow =
+      `0 0 ${20 + scrollY/40}px rgba(0,255,153,0.6),
+       0 0 ${40 + scrollY/20}px rgba(0,255,153,0.35)`;
   });
 });
 </script>
