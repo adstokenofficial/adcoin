@@ -6,27 +6,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ADSPANEL is a next-generation link monetization and digital advertising platform powered by ADCOIN.">
 
+<!-- OPEN GRAPH -->
 <meta property="og:title" content="ADSPANEL — The Future of Digital Ads">
 <meta property="og:description" content="Short links. Smart ads. Real analytics. Powered by ADCOIN.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="/adcoin/assets/adcoin-token.png">
 
-<link rel="icon" type="image/png" href="assets/adcoin-token.png">
-<link rel="shortcut icon" href="assets/adcoin-token.ico">
-  <!-- FAVICON FIX -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-
+<!-- FAVICON (GITHUB PAGES FIX) -->
+<link rel="icon" type="image/x-icon" href="/adcoin/favicon.ico">
+<link rel="shortcut icon" href="/adcoin/favicon.ico">
 
 <style>
+/* GLOBAL */
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
   background:radial-gradient(circle at top, #0f2a20, #050806 75%);
   color:#e6fff5;
   overflow-x:hidden;
+  cursor: url("/adcoin/cursor.cur"), crosshair;
 }
 
 a{text-decoration:none;color:inherit}
 
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -44,6 +47,26 @@ a{text-decoration:none;color:inherit}
   pointer-events:none;
 }
 
+/* LOGO */
+.adsp-logo-wrapper{
+  display:flex;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+.adsp-logo{
+  width:120px;
+  height:120px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 18px rgba(0,255,153,.7));
+  animation:spin 18s linear infinite;
+}
+
+@keyframes spin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
 h1{
   font-size:52px;
   color:#00ff99;
@@ -57,12 +80,13 @@ p{
 }
 
 .neon-logo{
-  font-size:120px;
-  margin:30px 0;
+  font-size:110px;
+  margin:20px 0;
   color:#00ff99;
   text-shadow:0 0 15px #00ff99,0 0 45px #00ff99;
 }
 
+/* BUTTONS */
 .buttons{
   display:flex;
   gap:18px;
@@ -78,11 +102,13 @@ p{
   background:rgba(0,0,0,.4);
   color:#00ff99;
   position:relative;
+  transition:.25s;
 }
 
 .btn:hover{
   background:rgba(0,255,153,.1);
   box-shadow:0 0 20px rgba(0,255,153,.5);
+  transform:translateY(-2px);
 }
 
 .btn.disabled{
@@ -100,6 +126,7 @@ p{
   color:#aaa;
 }
 
+/* SECTIONS */
 section{
   max-width:1100px;
   margin:auto;
@@ -128,21 +155,19 @@ section{
   background:rgba(0,0,0,.35);
 }
 
+/* FOOTER */
 footer{
   text-align:center;
   padding:50px 20px;
   opacity:.6;
 }
 
+/* MOBILE */
 @media(max-width:768px){
   h1{font-size:36px}
   .neon-logo{font-size:80px}
+  .adsp-logo{width:90px;height:90px}
 }
-  /* ROBOT CROSSHAIR CURSOR */
-body {
-  cursor: url("cursor.cur"), crosshair;
-}
-
 </style>
 </head>
 
@@ -152,7 +177,13 @@ body {
 <div class="hero">
   <div class="hero-bg"></div>
 
+  <!-- LOGO -->
+  <div class="adsp-logo-wrapper">
+    <img src="/adcoin/assets/adcoin-token.png" alt="ADCOIN Logo" class="adsp-logo">
+  </div>
+
   <div class="neon-logo">ADSPANEL</div>
+
   <h1>The Future of Digital Advertising</h1>
   <p>
     ADSPANEL is a next-generation link monetization and advertising platform.
@@ -161,7 +192,7 @@ body {
 
   <div class="buttons">
     <div class="btn disabled">Launch App</div>
-    <a class="btn" href="/adcoin">Back to ADCOIN</a>
+    <a class="btn" href="/adcoin/">Back to ADCOIN</a>
   </div>
 </div>
 
