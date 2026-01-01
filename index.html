@@ -18,17 +18,17 @@
 /* GLOBAL */
 body {
   margin:0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: radial-gradient(circle at top, #0f2a20, #050806 75%);
+  font-family:Arial,Helvetica,sans-serif;
+  background:radial-gradient(circle at top,#0f2a20,#050806 75%);
   color:#e6fff5;
   overflow-x:hidden;
-  cursor: url("cursor.cur"), crosshair;
+  cursor:url("cursor.cur"),crosshair;
 }
 
-a { text-decoration:none; color:inherit; }
+a{text-decoration:none;color:inherit}
 
 /* HERO */
-.hero {
+.hero{
   min-height:100vh;
   display:flex;
   flex-direction:column;
@@ -39,67 +39,58 @@ a { text-decoration:none; color:inherit; }
   z-index:1;
 }
 
-.hero-bg {
+.hero-bg{
   position:absolute;
   inset:0;
-  background: radial-gradient(circle at center, rgba(0,255,153,0.08), transparent 70%);
+  background:radial-gradient(circle at center,rgba(0,255,153,.08),transparent 70%);
   pointer-events:none;
 }
 
-.hero h1 {
+.hero h1{
   font-size:56px;
   color:#00ff99;
 }
 
-.hero p {
+.hero p{
   max-width:600px;
-  opacity:0.85;
+  opacity:.85;
 }
 
-.neon-a {
-  font-size:180px;
-  color:#00ff99;
-  text-shadow:0 0 15px #00ff99,0 0 50px #00ff99;
-  animation:pulse 2.5s infinite;
-}
-
-@keyframes pulse {
-  0%,100% {opacity:.6}
-  50% {opacity:1}
-}
-
-/* 🔹 TOKEN VISUAL */
-.token-visual {
+/* TOKEN */
+.token-visual{
   margin:40px 0 20px;
   perspective:900px;
   z-index:2;
 }
 
-.token-visual img {
+.token-float{
+  animation:tokenFloat 6s ease-in-out infinite;
+}
+
+.token-float img{
   width:220px;
   max-width:70%;
+  display:block;
   filter:
-    drop-shadow(0 0 25px rgba(0,255,153,0.7))
-    drop-shadow(0 0 55px rgba(0,255,153,0.35));
-  animation:
-    tokenFloat 6s ease-in-out infinite,
-    tokenRotate 18s linear infinite;
+    drop-shadow(0 0 25px rgba(0,255,153,.7))
+    drop-shadow(0 0 55px rgba(0,255,153,.35));
+  animation:tokenRotate 18s linear infinite;
   transform-style:preserve-3d;
 }
 
-@keyframes tokenFloat {
-  0% {transform:translateY(0)}
-  50% {transform:translateY(-18px)}
-  100% {transform:translateY(0)}
+@keyframes tokenFloat{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-18px)}
+  100%{transform:translateY(0)}
 }
 
-@keyframes tokenRotate {
-  from {transform:rotateY(0deg)}
-  to {transform:rotateY(360deg)}
+@keyframes tokenRotate{
+  from{transform:rotateY(0deg)}
+  to{transform:rotateY(360deg)}
 }
 
 /* BUTTONS */
-.buttons {
+.buttons{
   display:flex;
   gap:18px;
   margin-top:35px;
@@ -108,7 +99,7 @@ a { text-decoration:none; color:inherit; }
   z-index:2;
 }
 
-.btn {
+.btn{
   padding:12px 28px;
   border-radius:30px;
   border:1px solid #00ff99;
@@ -117,21 +108,21 @@ a { text-decoration:none; color:inherit; }
   cursor:pointer;
   position:relative;
   overflow:hidden;
-  transition: box-shadow .25s, transform .15s, background-color .25s;
+  transition:box-shadow .25s,transform .15s,background-color .25s;
 }
 
-.btn:hover {
+.btn:hover{
   transform:translateY(-2px);
   background:rgba(0,255,153,.1);
   box-shadow:0 0 12px rgba(0,255,153,.6),0 0 24px rgba(0,255,153,.35);
 }
 
-.btn.disabled {
+.btn.disabled{
   cursor:not-allowed;
   opacity:.7;
 }
 
-.btn.disabled:hover::after {
+.btn.disabled:hover::after{
   content:"Coming Soon";
   position:absolute;
   bottom:-26px;
@@ -142,34 +133,34 @@ a { text-decoration:none; color:inherit; }
 }
 
 /* CLICK NEON */
-.btn::after {
+.btn::after{
   content:"";
   position:absolute;
   left:50%;
   top:50%;
   width:10px;
   height:10px;
-  background:radial-gradient(circle, rgba(0,255,153,.9), transparent 70%);
+  background:radial-gradient(circle,rgba(0,255,153,.9),transparent 70%);
   transform:translate(-50%,-50%) scale(0);
   opacity:0;
 }
 
-.btn:active::after {
+.btn:active::after{
   animation:neonBurst .45s ease-out;
 }
 
-@keyframes neonBurst {
-  0% {transform:translate(-50%,-50%) scale(.2);opacity:.9}
-  100% {transform:translate(-50%,-50%) scale(5);opacity:0}
+@keyframes neonBurst{
+  0%{transform:translate(-50%,-50%) scale(.2);opacity:.9}
+  100%{transform:translate(-50%,-50%) scale(5);opacity:0}
 }
 
-/* HUD FRAME */
-.neon-frame {
+/* HUD */
+.neon-frame{
   position:fixed;
   top:0;
   width:6px;
   height:100vh;
-  background:linear-gradient(transparent, rgba(0,255,153,.8), transparent);
+  background:linear-gradient(transparent,rgba(0,255,153,.8),transparent);
   box-shadow:0 0 20px rgba(0,255,153,.6),0 0 40px rgba(0,255,153,.35);
   opacity:.25;
   pointer-events:none;
@@ -177,23 +168,23 @@ a { text-decoration:none; color:inherit; }
   animation:hudPulse 4s infinite;
 }
 
-.neon-frame.left {left:12px}
-.neon-frame.right {right:12px}
+.neon-frame.left{left:12px}
+.neon-frame.right{right:12px}
 
-@keyframes hudPulse {
+@keyframes hudPulse{
   0%{opacity:.15}
   50%{opacity:.35}
   100%{opacity:.15}
 }
 
 /* SECTIONS */
-section {
+section{
   max-width:1100px;
   margin:auto;
   padding:120px 20px;
 }
 
-.box {
+.box{
   background:rgba(0,0,0,.55);
   border:1px solid rgba(0,255,153,.25);
   border-radius:16px;
@@ -201,7 +192,7 @@ section {
   backdrop-filter:blur(10px);
 }
 
-.chain {
+.chain{
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -209,7 +200,7 @@ section {
   margin-top:60px;
 }
 
-.chain-item {
+.chain-item{
   width:340px;
   padding:18px;
   border-radius:50px;
@@ -219,23 +210,56 @@ section {
   position:relative;
 }
 
-.chain-item::after {
+.chain-item::after{
   content:"";
   position:absolute;
   bottom:-40px;
   left:50%;
   width:2px;
   height:40px;
-  background:linear-gradient(#00ff99, transparent);
+  background:linear-gradient(#00ff99,transparent);
 }
 
-.chain-item:last-child::after {display:none}
+.chain-item:last-child::after{display:none}
 
-footer {
+footer{
   text-align:center;
   padding:50px 20px;
   font-size:14px;
   opacity:.6;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  z-index:999;
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content{
+  width:90%;
+  max-width:900px;
+  background:#050806;
+  border:1px solid #00ff99;
+  border-radius:16px;
+  padding:20px;
+}
+
+.modal iframe{
+  width:100%;
+  height:480px;
+  border:none;
+}
+
+.close{
+  text-align:right;
+  color:#00ff99;
+  cursor:pointer;
+  font-size:14px;
 }
 </style>
 </head>
@@ -251,9 +275,10 @@ footer {
   <h1>ADCOIN</h1>
   <p>Born from ads. Powered by memes.</p>
 
-  <!-- ✅ TOKEN TAM DOĞRU YERDE -->
   <div class="token-visual">
-    <img src="assets/adcoin-token.png" alt="AdCoin Token">
+    <div class="token-float">
+      <img src="assets/adcoin-token.png" alt="AdCoin Token">
+    </div>
   </div>
 
   <div class="buttons">
@@ -265,7 +290,6 @@ footer {
   </div>
 </div>
 
-<!-- WHITEPAPER -->
 <section>
   <h2>Whitepaper</h2>
   <div class="box">
@@ -276,7 +300,6 @@ footer {
   </div>
 </section>
 
-<!-- TOKENOMICS -->
 <section>
   <h2>Tokenomics</h2>
   <div class="chain">
@@ -287,7 +310,6 @@ footer {
   </div>
 </section>
 
-<!-- ROADMAP -->
 <section>
   <h2>Roadmap</h2>
   <div class="chain">
@@ -302,7 +324,6 @@ ADCOIN is a meme token created for entertainment purposes only.<br>
 © 2026 ADCOIN
 </footer>
 
-<!-- MODAL -->
 <div id="chartModal" class="modal">
   <div class="modal-content">
     <div class="close" onclick="closeChart()">✕ Close</div>
