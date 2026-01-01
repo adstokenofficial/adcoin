@@ -6,175 +6,157 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ADCOIN is a community-driven meme token inspired by the digital attention economy.">
 
-<!-- SEO / SOCIAL -->
+<!-- SEO -->
 <meta property="og:title" content="ADCOIN — Born from ads. Powered by memes.">
-<meta property="og:description" content="A community-driven meme token inspired by the digital attention economy.">
+<meta property="og:description" content="Born from ads. Powered by memes.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://adcoin.netlify.app">
-<meta property="og:image" content="https://adcoin.netlify.app/favicon.png">
+<meta property="og:image" content="/favicon.png">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ADCOIN">
-<meta name="twitter:description" content="Born from ads. Powered by memes.">
-<meta name="twitter:image" content="https://adcoin.netlify.app/favicon.png">
 
-<!-- FAVICON -->
-<link rel="icon" type="image/png" href="/favicon.ico">
+<link rel="icon" href="/favicon.png">
 
 <style>
 /* GLOBAL */
 body {
-  margin: 0;
+  margin:0;
   font-family: Arial, Helvetica, sans-serif;
-  background: radial-gradient(circle at top, #0f2a20, #060b09 70%);
-  color: #e6fff5;
-  overflow-x: hidden;
+  background: radial-gradient(circle at top, #0f2a20, #050806 75%);
+  color:#e6fff5;
+  overflow-x:hidden;
 }
 
-h1,h2,h3 { color: #00ff99; }
-a { color: #00ff99; text-decoration: none; }
-
-section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 120px 20px;
-}
+a { text-decoration:none; color:inherit; }
 
 /* HERO */
 .hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  z-index:1;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='200' cy='200' r='1' fill='%2300ff99' opacity='0.15'/%3E%3C/svg%3E");
-  opacity: 0.15;
+.hero-bg {
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at center, rgba(0,255,153,0.08), transparent 70%);
+  pointer-events:none; /* 🔑 CLICK FIX */
 }
 
 .hero h1 {
-  font-size: 56px;
-  letter-spacing: 2px;
+  font-size:56px;
+  color:#00ff99;
 }
 
 .hero p {
-  font-size: 18px;
-  max-width: 650px;
-  opacity: 0.9;
+  max-width:600px;
+  opacity:0.85;
 }
 
-/* NEON A */
 .neon-a {
-  font-size: 180px;
-  margin-top: 40px;
-  color: #00ff99;
-  text-shadow:
-    0 0 10px #00ff99,
-    0 0 25px #00ff99,
-    0 0 60px #00ff99;
-  animation: pulse 2.5s infinite;
+  font-size:180px;
+  color:#00ff99;
+  text-shadow:0 0 15px #00ff99,0 0 50px #00ff99;
+  animation:pulse 2.5s infinite;
 }
 
 @keyframes pulse {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
+  0%,100% {opacity:.6}
+  50% {opacity:1}
 }
 
 /* BUTTONS */
 .buttons {
-  display: flex;
-  gap: 18px;
-  margin-top: 35px;
-  flex-wrap: wrap;
-  justify-content: center;
+  display:flex;
+  gap:18px;
+  margin-top:35px;
+  flex-wrap:wrap;
+  justify-content:center;
+  z-index:2;
 }
 
 .btn {
-  padding: 12px 26px;
-  border-radius: 30px;
-  border: 1px solid #00ff99;
-  color: #00ff99;
-  position: relative;
-  backdrop-filter: blur(6px);
+  padding:12px 28px;
+  border-radius:30px;
+  border:1px solid #00ff99;
+  color:#00ff99;
+  background:rgba(0,0,0,.4);
+  cursor:pointer;
+  position:relative;
 }
 
 .btn:hover {
-  background: rgba(0,255,153,0.1);
-  box-shadow: 0 0 20px rgba(0,255,153,0.45);
+  background:rgba(0,255,153,.1);
+  box-shadow:0 0 20px rgba(0,255,153,.5);
 }
 
 .btn.disabled:hover::after {
-  content: "Coming Soon";
-  position: absolute;
-  bottom: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 12px;
-  color: #aaa;
+  content:"Coming Soon";
+  position:absolute;
+  bottom:-26px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:12px;
+  color:#aaa;
 }
 
-/* GLASS BOX */
+/* MODAL */
+.modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  z-index:999;
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content {
+  width:90%;
+  max-width:900px;
+  background:#050806;
+  border:1px solid #00ff99;
+  border-radius:16px;
+  padding:20px;
+}
+
+.modal iframe {
+  width:100%;
+  height:480px;
+  border:none;
+}
+
+.close {
+  text-align:right;
+  color:#00ff99;
+  cursor:pointer;
+  font-size:14px;
+}
+
+/* SECTION */
+section {
+  max-width:1100px;
+  margin:auto;
+  padding:120px 20px;
+}
+
 .box {
-  background: rgba(0,0,0,0.55);
-  border: 1px solid rgba(0,255,153,0.25);
-  border-radius: 16px;
-  padding: 45px;
-  backdrop-filter: blur(10px);
-}
-
-/* CHAIN EFFECT */
-.chain {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  margin-top: 60px;
-}
-
-.chain-item {
-  width: 320px;
-  padding: 18px;
-  border-radius: 50px;
-  border: 1px solid #00ff99;
-  color: #00ff99;
-  text-align: center;
-  position: relative;
-}
-
-.chain-item::after {
-  content: "";
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  width: 2px;
-  height: 40px;
-  background: linear-gradient(#00ff99, transparent);
-}
-
-.chain-item:last-child::after { display:none; }
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 50px 20px;
-  font-size: 14px;
-  opacity: 0.6;
+  background:rgba(0,0,0,.55);
+  border:1px solid rgba(0,255,153,.25);
+  border-radius:16px;
+  padding:40px;
+  backdrop-filter:blur(10px);
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero h1 { font-size: 38px; }
-  .neon-a { font-size: 120px; }
-  .chain-item { width: 90%; }
-  .box { padding: 28px; }
+  .hero h1 {font-size:38px}
+  .neon-a {font-size:120px}
 }
 </style>
 </head>
@@ -183,14 +165,23 @@ footer {
 
 <!-- HERO -->
 <div class="hero">
+  <div class="hero-bg"></div>
+
   <h1>ADCOIN</h1>
   <p>Born from ads. Powered by memes.</p>
   <div class="neon-a">A</div>
 
   <div class="buttons">
-    <a class="btn" href="https://pump.fun/coin/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump" target="_blank">Buy on Pump.fun</a>
-    <a class="btn" href="https://dexscreener.com/solana/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump" target="_blank">Live Chart</a>
-    <a class="btn" href="https://x.com/adcoinofficial" target="_blank">X / Twitter</a>
+    <a class="btn" href="https://pump.fun/coin/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump" target="_blank">
+      Buy on Pump.fun
+    </a>
+
+    <button class="btn" onclick="openChart()">Live Chart</button>
+
+    <a class="btn" href="https://x.com/adcoinofficial" target="_blank">
+      Twitter (X)
+    </a>
+
     <div class="btn disabled">Telegram</div>
     <div class="btn disabled">ADSPANEL</div>
   </div>
@@ -200,39 +191,29 @@ footer {
 <section>
   <h2>Whitepaper</h2>
   <div class="box">
-    <p>ADCOIN is a community-driven meme token representing the digital attention economy.</p>
-
-    <div class="buttons" style="margin-top:35px;">
+    <p>The ADCOIN whitepaper explains the vision, tokenomics, and long-term roadmap.</p>
+    <div class="buttons">
       <a class="btn" href="/whitepaper.pdf" download>Download Whitepaper (PDF)</a>
     </div>
   </div>
 </section>
 
-<!-- TOKENOMICS -->
-<section>
-  <h2>Tokenomics</h2>
-  <div class="chain">
-    <div class="chain-item">1,000,000,000 Total Supply</div>
-    <div class="chain-item">0% Transaction Tax</div>
-    <div class="chain-item">Liquidity Burned</div>
-    <div class="chain-item">Ownership Renounced</div>
+<!-- MODAL -->
+<div id="chartModal" class="modal">
+  <div class="modal-content">
+    <div class="close" onclick="closeChart()">✕ Close</div>
+    <iframe src="https://pump.fun/coin/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump"></iframe>
   </div>
-</section>
+</div>
 
-<!-- ROADMAP -->
-<section>
-  <h2>Roadmap</h2>
-  <div class="chain">
-    <div class="chain-item">Q1 — Launch & Foundation</div>
-    <div class="chain-item">Q2 — Growth & Visibility</div>
-    <div class="chain-item">Q3 — ADSPANEL Experiments</div>
-  </div>
-</section>
-
-<footer>
-ADCOIN is a meme token created for entertainment purposes only.<br>
-© 2026 ADCOIN
-</footer>
+<script>
+function openChart(){
+  document.getElementById("chartModal").style.display="flex";
+}
+function closeChart(){
+  document.getElementById("chartModal").style.display="none";
+}
+</script>
 
 </body>
 </html>
