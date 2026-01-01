@@ -2,29 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ADCOIN — Born from ads. Powered by memes.</title>
+<title>ADSPANEL — The Future of Digital Ads</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ADCOIN is a community-driven meme token inspired by the digital attention economy.">
+<meta name="description" content="ADSPANEL is a next-generation link monetization and digital advertising platform powered by ADCOIN.">
 
-<!-- SEO / OG -->
-<meta property="og:title" content="ADCOIN — Born from ads. Powered by memes.">
-<meta property="og:description" content="Born from ads. Powered by memes.">
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="ADSPANEL — The Future of Digital Ads">
+<meta property="og:description" content="Short links. Smart ads. Real analytics. Powered by ADCOIN.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://adcoin.site/adcoin/assets/adcoin-token.png">
+<meta property="og:image" content="/adcoin/assets/adcoin-token.png">
 
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="https://adcoin.site/adcoin/favicon.ico">
-<link rel="shortcut icon" href="https://adcoin.site/adcoin/favicon.ico">
+<!-- FAVICON (GITHUB PAGES FIX) -->
+<link rel="icon" type="image/x-icon" href="/adcoin/favicon.ico">
+<link rel="shortcut icon" href="/adcoin/favicon.ico">
 
 <style>
 /* GLOBAL */
-body {
+body{
   margin:0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: radial-gradient(circle at top, #0f2a20, #050806 75%);
+  font-family:Arial, Helvetica, sans-serif;
+  background:radial-gradient(circle at top, #0f2a20, #050806 75%);
   color:#e6fff5;
   overflow-x:hidden;
-  cursor: url("https://adcoin.site/adcoin/cursor.cur"), crosshair;
+  cursor: url("/adcoin/cursor.cur"), crosshair;
 }
 
 a{text-decoration:none;color:inherit}
@@ -48,27 +48,18 @@ a{text-decoration:none;color:inherit}
 }
 
 /* LOGO */
-.neon-logo {
-  font-size:180px;
-  color:#00ff99;
-  text-shadow:0 0 15px #00ff99,0 0 50px #00ff99;
-  margin:20px 0;
-  animation:pulse 2.5s infinite;
+.adsp-logo-wrapper{
+  display:flex;
+  justify-content:center;
+  margin-bottom:20px;
 }
 
-@keyframes pulse {
-  0%,100% {opacity:.6}
-  50% {opacity:1}
-}
-
-/* TOKEN LOGO */
-.token-logo{
-  width:140px;
-  height:140px;
+.adsp-logo{
+  width:120px;
+  height:120px;
   object-fit:contain;
-  filter: drop-shadow(0 0 18px rgba(0,255,153,.7));
-  animation:spin 20s linear infinite;
-  margin: 20px 0;
+  filter:drop-shadow(0 0 18px rgba(0,255,153,.7));
+  animation:spin 18s linear infinite;
 }
 
 @keyframes spin{
@@ -76,25 +67,42 @@ a{text-decoration:none;color:inherit}
   to{transform:rotate(360deg)}
 }
 
+h1{
+  font-size:52px;
+  color:#00ff99;
+  letter-spacing:2px;
+}
+
+p{
+  max-width:650px;
+  opacity:.85;
+  line-height:1.6;
+}
+
+.neon-logo{
+  font-size:110px;
+  margin:20px 0;
+  color:#00ff99;
+  text-shadow:0 0 15px #00ff99,0 0 45px #00ff99;
+}
+
 /* BUTTONS */
 .buttons{
   display:flex;
   gap:18px;
-  margin-top:35px;
+  margin-top:30px;
   flex-wrap:wrap;
   justify-content:center;
-  z-index:2;
 }
 
 .btn{
-  padding:12px 28px;
+  padding:12px 30px;
   border-radius:30px;
   border:1px solid #00ff99;
-  color:#00ff99;
   background:rgba(0,0,0,.4);
-  cursor:pointer;
+  color:#00ff99;
   position:relative;
-  transition: .25s;
+  transition:.25s;
 }
 
 .btn:hover{
@@ -133,89 +141,33 @@ section{
   backdrop-filter:blur(10px);
 }
 
-.chain{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:40px;
-  margin-top:60px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:30px;
+  margin-top:40px;
 }
 
-.chain-item{
-  width:340px;
-  padding:18px;
-  border-radius:50px;
-  border:1px solid #00ff99;
-  color:#00ff99;
-  text-align:center;
-  position:relative;
-}
-
-.chain-item::after{
-  content:"";
-  position:absolute;
-  bottom:-40px;
-  left:50%;
-  width:2px;
-  height:40px;
-  background:linear-gradient(#00ff99, transparent);
-}
-
-.chain-item:last-child::after{
-  display:none;
-}
-
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  z-index:999;
-  justify-content:center;
-  align-items:center;
-}
-
-.modal-content{
-  width:90%;
-  max-width:900px;
-  background:#050806;
+.card{
   border:1px solid #00ff99;
   border-radius:16px;
-  padding:20px;
-}
-
-.modal iframe{
-  width:100%;
-  height:480px;
-  border:none;
-}
-
-.close{
-  text-align:right;
-  color:#00ff99;
-  cursor:pointer;
-  font-size:14px;
+  padding:30px;
+  background:rgba(0,0,0,.35);
 }
 
 /* FOOTER */
 footer{
   text-align:center;
   padding:50px 20px;
-  font-size:14px;
   opacity:.6;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero h1 {font-size:38px}
-  .neon-logo {font-size:120px}
-  .token-logo {width:100px;height:100px}
-  .chain-item {width:90%}
+  h1{font-size:36px}
+  .neon-logo{font-size:80px}
+  .adsp-logo{width:90px;height:90px}
 }
-
-/* CURSOR */
-body{cursor:url("https://adcoin.site/adcoin/cursor.cur"), crosshair;}
 </style>
 </head>
 
@@ -225,85 +177,75 @@ body{cursor:url("https://adcoin.site/adcoin/cursor.cur"), crosshair;}
 <div class="hero">
   <div class="hero-bg"></div>
 
-  <div class="token-logo-wrapper">
-    <img src="https://adcoin.site/adcoin/assets/adcoin-token.png" alt="ADCOIN Token Logo" class="token-logo">
+  <!-- LOGO -->
+  <div class="adsp-logo-wrapper">
+    <img src="/adcoin/assets/adcoin-token.png" alt="ADCOIN Logo" class="adsp-logo">
   </div>
 
-  <div class="neon-logo">ADCOIN</div>
+  <div class="neon-logo">ADSPANEL</div>
 
-  <h1>Born from ads. Powered by memes.</h1>
-  <p>ADCOIN is a community-driven meme token inspired by the digital attention economy.</p>
+  <h1>The Future of Digital Advertising</h1>
+  <p>
+    ADSPANEL is a next-generation link monetization and advertising platform.
+    Short links, smart ads, real-time analytics — all powered by ADCOIN.
+  </p>
 
-  <!-- BUTTONS -->
-  <div class="buttons">
-    <div class="btn disabled">Launch App</div>
+<div class="buttons">
+  <div class="btn disabled">Launch App</div>
 
-    <a class="btn"
-       href="https://adcoin.site/whitepaper.pdf"
-       download="ADCOIN_Whitepaper.pdf">
-       Download Whitepaper
-    </a>
+  <a 
+    class="btn"
+    href="https://adcoin.site/whitepaper.pdf"
+    download="Whitepaper.pdf"
+  >
+    Download Whitepaper
+  </a>
 
-    <a class="btn" href="https://adcoin.site/adspanel.html">ADSPANEL</a>
-
-    <a class="btn" href="https://pump.fun/coin/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump" target="_blank">Buy on Pump.fun</a>
-    <button class="btn" onclick="openChart()">Live Chart</button>
-    <a class="btn" href="https://x.com/adcoinofficial" target="_blank">Twitter (X)</a>
-    <div class="btn disabled">Telegram</div>
-  </div>
+  <a class="btn" href="/adcoin/">Back to ADCOIN</a>
 </div>
 
-<!-- WHITEPAPER SECTION -->
-<section>
-  <h2>Whitepaper</h2>
-  <div class="box">
-    <p>The ADCOIN whitepaper explains the vision, tokenomics, and roadmap.</p>
-    <div class="buttons">
-      <a class="btn"
-         href="https://adcoin.site/whitepaper.pdf"
-         download="ADCOIN_Whitepaper.pdf">
-         Download Whitepaper
-      </a>
-    </div>
-  </div>
-</section>
 
-<!-- TOKENOMICS -->
+
+<!-- FEATURES -->
 <section>
-  <h2>Tokenomics</h2>
-  <div class="chain">
-    <div class="chain-item">1,000,000,000 Total Supply</div>
-    <div class="chain-item">0% Transaction Tax</div>
-    <div class="chain-item">Liquidity Burned</div>
-    <div class="chain-item">Ownership Renounced</div>
+  <h2>What is ADSPANEL?</h2>
+  <div class="box">
+    <div class="grid">
+      <div class="card">
+        <h3>Smart Link Shortener</h3>
+        <p>Create short links that generate value through intelligent ad placement.</p>
+      </div>
+      <div class="card">
+        <h3>Real-Time Analytics</h3>
+        <p>Track clicks, regions, devices, and performance instantly.</p>
+      </div>
+      <div class="card">
+        <h3>ADCOIN Integration</h3>
+        <p>Rewards, fees, and ecosystem utilities powered directly by ADCOIN.</p>
+      </div>
+      <div class="card">
+        <h3>Creator-Friendly</h3>
+        <p>Built for creators, marketers, and communities — not corporations.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ROADMAP -->
 <section>
-  <h2>Roadmap</h2>
-  <div class="chain">
-    <div class="chain-item">Q1 — Launch & Community</div>
-    <div class="chain-item">Q2 — Growth & Visibility</div>
-    <div class="chain-item">Q3 — ADSPANEL Development</div>
+  <h2>ADSPANEL Roadmap</h2>
+  <div class="box">
+    <ul>
+      <li>Phase 1 — Concept & Architecture</li>
+      <li>Phase 2 — MVP Development</li>
+      <li>Phase 3 — ADCOIN Integration</li>
+      <li>Phase 4 — Public Launch</li>
+    </ul>
   </div>
 </section>
 
-<!-- MODAL -->
-<div id="chartModal" class="modal">
-  <div class="modal-content">
-    <div class="close" onclick="closeChart()">✕ Close</div>
-    <iframe src="https://pump.fun/coin/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump"></iframe>
-  </div>
-</div>
-
-<script>
-function openChart(){document.getElementById("chartModal").style.display="flex";}
-function closeChart(){document.getElementById("chartModal").style.display="none";}
-</script>
-
 <footer>
-ADCOIN is a meme token created for entertainment purposes only.<br>
+ADSPANEL is an experimental product within the ADCOIN ecosystem.<br>
 © 2026 ADCOIN
 </footer>
 
