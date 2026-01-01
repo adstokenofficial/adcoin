@@ -6,29 +6,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ADCOIN is a community-driven meme token inspired by the digital attention economy.">
 
+<!-- SEO -->
 <meta property="og:title" content="ADCOIN — Born from ads. Powered by memes.">
 <meta property="og:description" content="Born from ads. Powered by memes.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/favicon.ico">
+
 <meta name="twitter:card" content="summary_large_image">
 
+<!-- FAVICON FIX -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 <style>
 /* GLOBAL */
 body {
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:radial-gradient(circle at top,#0f2a20,#050806 75%);
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top, #0f2a20, #050806 75%);
   color:#e6fff5;
   overflow-x:hidden;
-  cursor:url("cursor.cur"),crosshair;
 }
 
-a{text-decoration:none;color:inherit}
+a { text-decoration:none; color:inherit; }
 
 /* HERO */
-.hero{
+.hero {
   min-height:100vh;
   display:flex;
   flex-direction:column;
@@ -39,58 +41,37 @@ a{text-decoration:none;color:inherit}
   z-index:1;
 }
 
-.hero-bg{
+.hero-bg {
   position:absolute;
   inset:0;
-  background:radial-gradient(circle at center,rgba(0,255,153,.08),transparent 70%);
+  background: radial-gradient(circle at center, rgba(0,255,153,0.08), transparent 70%);
   pointer-events:none;
 }
 
-.hero h1{
+.hero h1 {
   font-size:56px;
   color:#00ff99;
 }
 
-.hero p{
+.hero p {
   max-width:600px;
-  opacity:.85;
+  opacity:0.85;
 }
 
-/* TOKEN */
-.token-visual{
-  margin:40px 0 20px;
-  perspective:900px;
-  z-index:2;
+.neon-a {
+  font-size:180px;
+  color:#00ff99;
+  text-shadow:0 0 15px #00ff99,0 0 50px #00ff99;
+  animation:pulse 2.5s infinite;
 }
 
-.token-float{
-  animation:tokenFloat 6s ease-in-out infinite;
-}
-
-.token-float img{
-  width:220px;
-  max-width:70%;
-  display:block;
-  filter:
-    drop-shadow(0 0 25px rgba(0,255,153,.7))
-    drop-shadow(0 0 55px rgba(0,255,153,.35));
-  animation:tokenRotate 18s linear infinite;
-  transform-style:preserve-3d;
-}
-
-@keyframes tokenFloat{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-18px)}
-  100%{transform:translateY(0)}
-}
-
-@keyframes tokenRotate{
-  from{transform:rotateY(0deg)}
-  to{transform:rotateY(360deg)}
+@keyframes pulse {
+  0%,100% {opacity:.6}
+  50% {opacity:1}
 }
 
 /* BUTTONS */
-.buttons{
+.buttons {
   display:flex;
   gap:18px;
   margin-top:35px;
@@ -99,7 +80,7 @@ a{text-decoration:none;color:inherit}
   z-index:2;
 }
 
-.btn{
+.btn {
   padding:12px 28px;
   border-radius:30px;
   border:1px solid #00ff99;
@@ -107,22 +88,19 @@ a{text-decoration:none;color:inherit}
   background:rgba(0,0,0,.4);
   cursor:pointer;
   position:relative;
-  overflow:hidden;
-  transition:box-shadow .25s,transform .15s,background-color .25s;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
+.btn:hover {
   background:rgba(0,255,153,.1);
-  box-shadow:0 0 12px rgba(0,255,153,.6),0 0 24px rgba(0,255,153,.35);
+  box-shadow:0 0 20px rgba(0,255,153,.5);
 }
 
-.btn.disabled{
+.btn.disabled {
   cursor:not-allowed;
   opacity:.7;
 }
 
-.btn.disabled:hover::after{
+.btn.disabled:hover::after {
   content:"Coming Soon";
   position:absolute;
   bottom:-26px;
@@ -132,59 +110,14 @@ a{text-decoration:none;color:inherit}
   color:#aaa;
 }
 
-/* CLICK NEON */
-.btn::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:10px;
-  height:10px;
-  background:radial-gradient(circle,rgba(0,255,153,.9),transparent 70%);
-  transform:translate(-50%,-50%) scale(0);
-  opacity:0;
-}
-
-.btn:active::after{
-  animation:neonBurst .45s ease-out;
-}
-
-@keyframes neonBurst{
-  0%{transform:translate(-50%,-50%) scale(.2);opacity:.9}
-  100%{transform:translate(-50%,-50%) scale(5);opacity:0}
-}
-
-/* HUD */
-.neon-frame{
-  position:fixed;
-  top:0;
-  width:6px;
-  height:100vh;
-  background:linear-gradient(transparent,rgba(0,255,153,.8),transparent);
-  box-shadow:0 0 20px rgba(0,255,153,.6),0 0 40px rgba(0,255,153,.35);
-  opacity:.25;
-  pointer-events:none;
-  z-index:0;
-  animation:hudPulse 4s infinite;
-}
-
-.neon-frame.left{left:12px}
-.neon-frame.right{right:12px}
-
-@keyframes hudPulse{
-  0%{opacity:.15}
-  50%{opacity:.35}
-  100%{opacity:.15}
-}
-
 /* SECTIONS */
-section{
+section {
   max-width:1100px;
   margin:auto;
   padding:120px 20px;
 }
 
-.box{
+.box {
   background:rgba(0,0,0,.55);
   border:1px solid rgba(0,255,153,.25);
   border-radius:16px;
@@ -192,7 +125,8 @@ section{
   backdrop-filter:blur(10px);
 }
 
-.chain{
+/* CHAIN EFFECT */
+.chain {
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -200,7 +134,7 @@ section{
   margin-top:60px;
 }
 
-.chain-item{
+.chain-item {
   width:340px;
   padding:18px;
   border-radius:50px;
@@ -210,27 +144,22 @@ section{
   position:relative;
 }
 
-.chain-item::after{
+.chain-item::after {
   content:"";
   position:absolute;
   bottom:-40px;
   left:50%;
   width:2px;
   height:40px;
-  background:linear-gradient(#00ff99,transparent);
+  background:linear-gradient(#00ff99, transparent);
 }
 
-.chain-item:last-child::after{display:none}
-
-footer{
-  text-align:center;
-  padding:50px 20px;
-  font-size:14px;
-  opacity:.6;
+.chain-item:last-child::after {
+  display:none;
 }
 
 /* MODAL */
-.modal{
+.modal {
   display:none;
   position:fixed;
   inset:0;
@@ -240,7 +169,7 @@ footer{
   align-items:center;
 }
 
-.modal-content{
+.modal-content {
   width:90%;
   max-width:900px;
   background:#050806;
@@ -249,37 +178,136 @@ footer{
   padding:20px;
 }
 
-.modal iframe{
+.modal iframe {
   width:100%;
   height:480px;
   border:none;
 }
 
-.close{
+.close {
   text-align:right;
   color:#00ff99;
   cursor:pointer;
   font-size:14px;
 }
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:50px 20px;
+  font-size:14px;
+  opacity:.6;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero h1 {font-size:38px}
+  .neon-a {font-size:120px}
+  .chain-item {width:90%}
+}
+  /* ROBOT CROSSHAIR CURSOR */
+body {
+  cursor: url("cursor.cur"), crosshair;
+}
+/* NEON FLASH TRANSITION */
+.btn {
+  transition: 
+    box-shadow 0.25s ease,
+    transform 0.15s ease,
+    background-color 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(0,255,153,0.6),
+              0 0 24px rgba(0,255,153,0.35);
+}
+/* CLICK NEON EXPLOSION */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, rgba(0,255,153,0.9), transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn:active::after {
+  animation: neonBurst 0.45s ease-out;
+}
+
+@keyframes neonBurst {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.9;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(5);
+    opacity: 0;
+  }
+}
+/* NEON HUD / ROLEX FRAME */
+.neon-frame {
+  position: fixed;
+  top: 0;
+  width: 6px;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0,255,153,0.8),
+    transparent
+  );
+  box-shadow:
+    0 0 20px rgba(0,255,153,0.6),
+    0 0 40px rgba(0,255,153,0.35);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+  animation: hudPulse 4s infinite ease-in-out;
+}
+
+.neon-frame.left {
+  left: 12px;
+}
+
+.neon-frame.right {
+  right: 12px;
+}
+
+@keyframes hudPulse {
+  0%   { opacity: 0.15; }
+  50%  { opacity: 0.35; }
+  100% { opacity: 0.15; }
+}
+
 </style>
 </head>
 
 <body>
-
 <div class="neon-frame left"></div>
 <div class="neon-frame right"></div>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-bg"></div>
 
   <h1>ADCOIN</h1>
   <p>Born from ads. Powered by memes.</p>
-
-  <div class="token-visual">
-    <div class="token-float">
-      <img src="adcoin/adcoin-token.png" alt="AdCoin Token">
-    </div>
-  </div>
+  <div class="neon-a">A</div>
 
   <div class="buttons">
     <a class="btn" href="https://pump.fun/coin/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump" target="_blank">Buy on Pump.fun</a>
@@ -290,6 +318,7 @@ footer{
   </div>
 </div>
 
+<!-- WHITEPAPER -->
 <section>
   <h2>Whitepaper</h2>
   <div class="box">
@@ -300,6 +329,7 @@ footer{
   </div>
 </section>
 
+<!-- TOKENOMICS -->
 <section>
   <h2>Tokenomics</h2>
   <div class="chain">
@@ -310,6 +340,7 @@ footer{
   </div>
 </section>
 
+<!-- ROADMAP -->
 <section>
   <h2>Roadmap</h2>
   <div class="chain">
@@ -324,6 +355,7 @@ ADCOIN is a meme token created for entertainment purposes only.<br>
 © 2026 ADCOIN
 </footer>
 
+<!-- MODAL -->
 <div id="chartModal" class="modal">
   <div class="modal-content">
     <div class="close" onclick="closeChart()">✕ Close</div>
@@ -332,8 +364,39 @@ ADCOIN is a meme token created for entertainment purposes only.<br>
 </div>
 
 <script>
-function openChart(){document.getElementById("chartModal").style.display="flex";}
-function closeChart(){document.getElementById("chartModal").style.display="none";}
+function openChart(){
+  document.getElementById("chartModal").style.display="flex";
+}
+function closeChart(){
+  document.getElementById("chartModal").style.display="none";
+}
+</script>
+<audio id="hoverSound" src="hover.mp3" preload="auto"></audio>
+  <script>
+const hoverSound = document.getElementById("hoverSound");
+
+document.querySelectorAll(".btn").forEach(btn => {
+  btn.addEventListener("mouseenter", () => {
+    hoverSound.currentTime = 0;
+    hoverSound.volume = 0.3;
+    hoverSound.play();
+  });
+});
+</script>
+<script>
+const frames = document.querySelectorAll('.neon-frame');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const intensity = Math.min(0.6, 0.15 + scrollY / 3000);
+
+  frames.forEach(frame => {
+    frame.style.opacity = intensity;
+    frame.style.boxShadow =
+      `0 0 ${20 + scrollY/40}px rgba(0,255,153,0.6),
+       0 0 ${40 + scrollY/20}px rgba(0,255,153,0.35)`;
+  });
+});
 </script>
 
 </body>
