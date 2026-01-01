@@ -222,6 +222,43 @@ body {
   box-shadow: 0 0 12px rgba(0,255,153,0.6),
               0 0 24px rgba(0,255,153,0.35);
 }
+/* CLICK NEON EXPLOSION */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, rgba(0,255,153,0.9), transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn:active::after {
+  animation: neonBurst 0.45s ease-out;
+}
+
+@keyframes neonBurst {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.9;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(5);
+    opacity: 0;
+  }
+}
 
 </style>
 </head>
