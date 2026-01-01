@@ -398,6 +398,32 @@ window.addEventListener('scroll', () => {
   });
 });
 </script>
+<script>
+/* ===== ANTI-BOT CORE ===== */
+let humanDetected = false;
+let hoverDetected = false;
+
+// İnsan davranışı yakala
+window.addEventListener("mousemove", () => humanDetected = true);
+window.addEventListener("scroll", () => humanDetected = true);
+
+// Hover kontrolü
+document.addEventListener("mouseover", e => {
+  if (e.target.classList.contains("btn")) {
+    hoverDetected = true;
+  }
+});
+
+// Güvenli yönlendirme
+function safeRedirect(url) {
+  if (!humanDetected || !hoverDetected) return;
+
+  const delay = 1500 + Math.random() * 800; // 1.5 – 2.3 sn
+  setTimeout(() => {
+    window.location.href = url;
+  }, delay);
+}
+</script>
 
 </body>
 </html>
