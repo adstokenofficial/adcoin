@@ -10,11 +10,12 @@
 <meta property="og:title" content="ADCOIN — Born from ads. Powered by memes.">
 <meta property="og:description" content="Born from ads. Powered by memes.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="/favicon.png">
+<meta property="og:image" content="/favicon.ico">
 
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="/favicon.png">
+<!-- FAVICON FIX -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 <style>
 /* GLOBAL */
@@ -43,9 +44,8 @@ a { text-decoration:none; color:inherit; }
 .hero-bg {
   position:absolute;
   inset:0;
-  background:
-    radial-gradient(circle at center, rgba(0,255,153,0.08), transparent 70%);
-  pointer-events:none; /* 🔑 CLICK FIX */
+  background: radial-gradient(circle at center, rgba(0,255,153,0.08), transparent 70%);
+  pointer-events:none;
 }
 
 .hero h1 {
@@ -95,6 +95,11 @@ a { text-decoration:none; color:inherit; }
   box-shadow:0 0 20px rgba(0,255,153,.5);
 }
 
+.btn.disabled {
+  cursor:not-allowed;
+  opacity:.7;
+}
+
 .btn.disabled:hover::after {
   content:"Coming Soon";
   position:absolute;
@@ -103,6 +108,54 @@ a { text-decoration:none; color:inherit; }
   transform:translateX(-50%);
   font-size:12px;
   color:#aaa;
+}
+
+/* SECTIONS */
+section {
+  max-width:1100px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+.box {
+  background:rgba(0,0,0,.55);
+  border:1px solid rgba(0,255,153,.25);
+  border-radius:16px;
+  padding:40px;
+  backdrop-filter:blur(10px);
+}
+
+/* CHAIN EFFECT */
+.chain {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:40px;
+  margin-top:60px;
+}
+
+.chain-item {
+  width:340px;
+  padding:18px;
+  border-radius:50px;
+  border:1px solid #00ff99;
+  color:#00ff99;
+  text-align:center;
+  position:relative;
+}
+
+.chain-item::after {
+  content:"";
+  position:absolute;
+  bottom:-40px;
+  left:50%;
+  width:2px;
+  height:40px;
+  background:linear-gradient(#00ff99, transparent);
+}
+
+.chain-item:last-child::after {
+  display:none;
 }
 
 /* MODAL */
@@ -138,25 +191,19 @@ a { text-decoration:none; color:inherit; }
   font-size:14px;
 }
 
-/* SECTION */
-section {
-  max-width:1100px;
-  margin:auto;
-  padding:120px 20px;
-}
-
-.box {
-  background:rgba(0,0,0,.55);
-  border:1px solid rgba(0,255,153,.25);
-  border-radius:16px;
-  padding:40px;
-  backdrop-filter:blur(10px);
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:50px 20px;
+  font-size:14px;
+  opacity:.6;
 }
 
 /* MOBILE */
 @media(max-width:768px){
   .hero h1 {font-size:38px}
   .neon-a {font-size:120px}
+  .chain-item {width:90%}
 }
 </style>
 </head>
@@ -172,16 +219,9 @@ section {
   <div class="neon-a">A</div>
 
   <div class="buttons">
-    <a class="btn" href="https://pump.fun/coin/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump" target="_blank">
-      Buy on Pump.fun
-    </a>
-
+    <a class="btn" href="https://pump.fun/coin/EhWJcSchTDkZZ7sAmdkARPmdtvg9HRzsXafGAMxxpump" target="_blank">Buy on Pump.fun</a>
     <button class="btn" onclick="openChart()">Live Chart</button>
-
-    <a class="btn" href="https://x.com/adcoinofficial" target="_blank">
-      Twitter (X)
-    </a>
-
+    <a class="btn" href="https://x.com/adcoinofficial" target="_blank">Twitter (X)</a>
     <div class="btn disabled">Telegram</div>
     <div class="btn disabled">ADSPANEL</div>
   </div>
@@ -191,12 +231,38 @@ section {
 <section>
   <h2>Whitepaper</h2>
   <div class="box">
-    <p>The ADCOIN whitepaper explains the vision, tokenomics, and long-term roadmap.</p>
+    <p>The ADCOIN whitepaper explains the vision, tokenomics, and roadmap.</p>
     <div class="buttons">
       <a class="btn" href="/whitepaper.pdf" download>Download Whitepaper (PDF)</a>
     </div>
   </div>
 </section>
+
+<!-- TOKENOMICS -->
+<section>
+  <h2>Tokenomics</h2>
+  <div class="chain">
+    <div class="chain-item">1,000,000,000 Total Supply</div>
+    <div class="chain-item">0% Transaction Tax</div>
+    <div class="chain-item">Liquidity Burned</div>
+    <div class="chain-item">Ownership Renounced</div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section>
+  <h2>Roadmap</h2>
+  <div class="chain">
+    <div class="chain-item">Q1 — Launch & Community</div>
+    <div class="chain-item">Q2 — Growth & Visibility</div>
+    <div class="chain-item">Q3 — ADSPANEL Development</div>
+  </div>
+</section>
+
+<footer>
+ADCOIN is a meme token created for entertainment purposes only.<br>
+© 2026 ADCOIN
+</footer>
 
 <!-- MODAL -->
 <div id="chartModal" class="modal">
